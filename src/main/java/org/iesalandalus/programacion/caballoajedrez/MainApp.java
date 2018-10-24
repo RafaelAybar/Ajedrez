@@ -33,4 +33,9 @@ public class MainApp {
 	Direccion izquierda_arriba = Direccion.IZQUIERDA_ARRIBA;
 	Direccion izquierda_abajo = Direccion.IZQUIERDA_ABAJO;
 	
+	//Creamos la clase Posicion
+	public class Posicion {
+		int fila;
+		char columna;
+	}
 }
