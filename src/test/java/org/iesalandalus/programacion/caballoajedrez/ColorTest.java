@@ -2,6 +2,7 @@ package org.iesalandalus.programacion.caballoajedrez;
 
 import static org.junit.Assert.*;
 
+import org.iesalandalus.programacion.caballoajedrez.MainApp.Color;
 import org.junit.Test;
 
 public class ColorTest {

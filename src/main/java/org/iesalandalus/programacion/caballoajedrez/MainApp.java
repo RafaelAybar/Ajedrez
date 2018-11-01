@@ -35,7 +35,24 @@ public class MainApp {
 	
 	//Creamos la clase Posicion
 	public class Posicion {
-		int fila;
-		char columna;
+		public int fila;
+		public char columna;
+		
+		// Creamos los setter
+		public char GetColumna() {
+			return columna;
+		}
+		public int GetFila() {
+			return fila;
+		}
+		
+		//Creamos los getter
+		public void SetColumna(char columna) {
+			this.columna = columna;
+		}
+		public void SetFila(int fila) {
+			this.fila = fila;
+		}
 	}
+	
 }
