@@ -38,7 +38,7 @@ public class MainApp {
 		public int fila;
 		public char columna;
 		
-		// Creamos los setter
+		// Creamos los getter
 		public char GetColumna() {
 			return columna;
 		}
@@ -46,12 +46,24 @@ public class MainApp {
 			return fila;
 		}
 		
-		//Creamos los getter
+		//Creamos los setter
 		public void SetColumna(char columna) {
-			this.columna = columna;
+			if (columna == 'a' || columna == 'b' || columna == 'c' || columna == 'd' || columna == 'e' || columna == 'f' || columna == 'g' || columna == 'h') {
+				this.columna = columna;
+			}
+			else {
+				throw new IllegalArgumentException("Los valores de la colummna son incoherentes");
+			}
+			
 		}
 		public void SetFila(int fila) {
-			this.fila = fila;
+			if (fila < 9 && fila > 0) {
+				this.fila = fila;
+			}
+			else {
+				throw new IllegalArgumentException("Los valores de la fila son incoherentes");
+			}
+			
 		}
 	}
 	
