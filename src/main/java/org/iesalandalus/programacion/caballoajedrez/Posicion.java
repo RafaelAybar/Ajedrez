@@ -36,9 +36,11 @@ public class Posicion {
 			public static class PosicionConstructor{
 				public static void main(String arg[]) {
 					
+					System.out.println("Introduze la fila");
 					Scanner reader = new Scanner(System.in);
 					int filaNueva = reader.nextInt();
 					//Para validar el dato tenemos que forzzarlo como string
+					System.out.println("Introduce la columna");
 					String columnaNueva = reader.next();
 					//Como es una sola letra, usamos charAt(0) para obtenerla
 					char letraColumna = charAt(0);
@@ -46,13 +48,13 @@ public class Posicion {
 					//validamos los valores introducidos
 					
 					if (filaNueva < 9 && filaNueva > 0) {
-						System.out.println("Movimiento correcto");
+						System.out.println("Fila correcta");
 					}
 					else {
 						throw new IllegalArgumentException("Los valores de la fila son incoherentes");
 					}
 					if (letraColumna == 'a' || letraColumna == 'b' || letraColumna == 'c' || letraColumna == 'd' || letraColumna == 'e' || letraColumna == 'f' || letraColumna == 'g' || letraColumna == 'h'){
-						System.out.println("Movimiento correcto");
+						System.out.println("Columna correcta");
 					}
 					else {
 						throw new IllegalArgumentException("Los valores de la columna son incoherentes");
