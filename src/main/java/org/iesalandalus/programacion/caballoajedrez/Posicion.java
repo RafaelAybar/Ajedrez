@@ -37,13 +37,12 @@ public class Posicion {
 				public static void main(String arg[]) {
 					
 					System.out.println("Introduze la fila");
-					Scanner reader = new Scanner(System.in);
-					int filaNueva = reader.nextInt();
+					int filaNueva = new Scanner(System.in).nextInt();
 					//Para validar el dato tenemos que forzzarlo como string
 					System.out.println("Introduce la columna");
-					String columnaNueva = reader.next();
+					String columnaNueva = new Scanner(System.in).next();
 					//Como es una sola letra, usamos charAt(0) para obtenerla
-					char letraColumna = charAt(0);
+					char letraColumna = columnaNueva.charAt(0);
 					
 					//validamos los valores introducidos
 					
@@ -59,10 +58,6 @@ public class Posicion {
 					else {
 						throw new IllegalArgumentException("Los valores de la columna son incoherentes");
 					}
-				}
-
-				private static char charAt(int i) {
-					return 0;
 				}
 				
 			}
