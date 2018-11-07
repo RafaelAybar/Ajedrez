@@ -1,10 +1,10 @@
 package org.iesalandalus.programacion.caballoajedrez;
-
 import java.util.Scanner;
+import org.iesalandalus.programacion.utilidades.*;
 
 public class Posicion {
 			public int fila;
-			public static char columna;
+			public char columna;
 			
 			// Creamos los getter
 			public char GetColumna() {
@@ -17,7 +17,7 @@ public class Posicion {
 			//Creamos los setter
 			public void SetColumna(char columna) {
 				if (columna == 'a' || columna == 'b' || columna == 'c' || columna == 'd' || columna == 'e' || columna == 'f' || columna == 'g' || columna == 'h') {
-					Posicion.columna = columna;
+					this.columna = columna;
 				}
 				else {
 					throw new IllegalArgumentException("Los valores de la columna son incoherentes");
@@ -32,17 +32,32 @@ public class Posicion {
 					throw new IllegalArgumentException("Los valores de la fila son incoherentes");
 				}
 			}
-			
-			public static class PosicionConstructor{
-				public static void main(String arg[]) {
+			//Creamos el constructor
+			public Posicion(int fila, int columna){
+				//Comprobamos que tenga los valores pertinentes
+				if (columna == 'a' || columna == 'b' || columna == 'c' || columna == 'd' || columna == 'e' || columna == 'f' || columna == 'g' || columna == 'h') {
+					this.columna = (char) columna;
+				}
+				else {
+					throw new IllegalArgumentException("Los valores de la columna son incoherentes");
+				}
+				if (fila < 9 && fila > 0) {
+					this.fila = fila;
+				}
+				else {
+					throw new IllegalArgumentException("Los valores de la fila son incoherentes");
+				}
+				
+				/*public static void main(String arg[]) {
 					
 					System.out.println("Introduze la fila");
-					int filaNueva = new Scanner(System.in).nextInt();
+					//int filaNueva = new Scanner(System.in).nextInt();
+					int filaNueva = Entrada.entero();
 					//Para validar el dato tenemos que forzzarlo como string
 					System.out.println("Introduce la columna");
-					String columnaNueva = new Scanner(System.in).next();
+					char columnaNueva = Entrada.caracter();
 					//Como es una sola letra, usamos charAt(0) para obtenerla
-					char letraColumna = columnaNueva.charAt(0);
+					//char letraColumna = columnaNueva.charAt(0);
 					
 					//validamos los valores introducidos
 					
@@ -52,13 +67,13 @@ public class Posicion {
 					else {
 						throw new IllegalArgumentException("Los valores de la fila son incoherentes");
 					}
-					if (letraColumna == 'a' || letraColumna == 'b' || letraColumna == 'c' || letraColumna == 'd' || letraColumna == 'e' || letraColumna == 'f' || letraColumna == 'g' || letraColumna == 'h'){
+					if (columnaNueva == 'a' || columnaNueva == 'b' || columnaNueva == 'c' || columnaNueva == 'd' || columnaNueva == 'e' || columnaNueva == 'f' || columnaNueva == 'g' || columnaNueva == 'h'){
 						System.out.println("Columna correcta");
 					}
 					else {
 						throw new IllegalArgumentException("Los valores de la columna son incoherentes");
 					}
-				}
+				}*/
 				
 			}
 		}
