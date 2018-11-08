@@ -14,37 +14,29 @@ public class Posicion {
 			
 			//Creamos los setter
 			public void setColumna(char columna) {
-				if (columna < 'a' || columna > 'h') {
-					this.columna = columna;
-				}
+				if (columna < 'a' || columna > 'h') throw new IllegalArgumentException("Los valores de la columna son incoherentes");
 				else {
-					throw new IllegalArgumentException("Los valores de la columna son incoherentes");
+					this.columna = columna;
 				}
 				
 			}
 			public void setFila(int fila) {
-				if (fila < 9 && fila > 0) {
-					this.fila = fila;
-				}
+				if (fila < 0 && fila > 8)throw new IllegalArgumentException("Los valores de la fila son incoherentes");	
 				else {
-					throw new IllegalArgumentException("Los valores de la fila son incoherentes");
+					this.fila = fila;
 				}
 			}
 			//Creamos el constructor
 			public Posicion(int fila, char columna){
 				//Comprobamos que tenga los valores pertinentes
-				if (columna < 'a' || columna > 'h') {
+				if (columna < 'a' || columna > 'h') throw new IllegalArgumentException("Los valores de la columna son incoherentes");
+				else {
 					this.columna = columna;
 				}
+				if (fila < 0 && fila > 8)throw new IllegalArgumentException("Los valores de la fila son incoherentes");	
 				else {
-					throw new IllegalArgumentException("Los valores de la columna son incoherentes");
-				}
-				if (fila < 9 && fila > 0) {
 					this.fila = fila;
 				}
-				else {
-					throw new IllegalArgumentException("Los valores de la fila son incoherentes");
 				}
 				
 			}
-		}
