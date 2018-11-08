@@ -33,10 +33,10 @@ public class Posicion {
 				}
 			}
 			//Creamos el constructor
-			public Posicion(int fila, int columna){
+			public Posicion(int fila, char columna){
 				//Comprobamos que tenga los valores pertinentes
 				if (columna == 'a' || columna == 'b' || columna == 'c' || columna == 'd' || columna == 'e' || columna == 'f' || columna == 'g' || columna == 'h') {
-					this.columna = (char) columna;
+					this.columna = columna;
 				}
 				else {
 					throw new IllegalArgumentException("Los valores de la columna son incoherentes");
