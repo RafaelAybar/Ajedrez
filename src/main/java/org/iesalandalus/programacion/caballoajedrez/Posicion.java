@@ -37,6 +37,10 @@ public class Posicion {
 				else {
 					this.fila = fila;
 				}
-				}
-				
 			}
+			//Creamos el constructor copia
+			public Posicion(final Posicion copia) {
+				this.columna = copia.columna;
+				this.fila = copia.columna;
+			}
+		}
