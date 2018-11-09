@@ -43,4 +43,7 @@ public class Posicion {
 				this.columna = copia.columna;
 				this.fila = copia.columna;
 			}
+			//Creamos el método equals, como no se usará en principio queda comentado
+			//cadena1ejemplo.equals(cadena2ejemplo);
+			
 		}
