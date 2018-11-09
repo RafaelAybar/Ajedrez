@@ -46,7 +46,11 @@ public class Posicion {
 			//Creamos el método equals, como no se usará en principio queda comentado
 				//cadena1ejemplo.equals(cadena2ejemplo);
 			
-			//Guardamos la posición del caballo
-			String posicionFinal = Integer.toString(fila) + columna;
-			
+			//Creamos el método toString
+			@Override
+			public String toString(){
+				this.fila = getFila();
+				this.columna = getColumna();
+				return "[fila][columna]";
+			}
 		}
