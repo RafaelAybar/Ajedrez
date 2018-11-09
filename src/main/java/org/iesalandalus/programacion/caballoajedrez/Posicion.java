@@ -44,6 +44,9 @@ public class Posicion {
 				this.fila = copia.columna;
 			}
 			//Creamos el método equals, como no se usará en principio queda comentado
-			//cadena1ejemplo.equals(cadena2ejemplo);
+				//cadena1ejemplo.equals(cadena2ejemplo);
+			
+			//Guardamos la posición del caballo
+			String posicionFinal = Integer.toString(fila) + columna;
 			
 		}
