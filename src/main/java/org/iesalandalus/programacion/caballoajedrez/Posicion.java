@@ -28,15 +28,17 @@ public class Posicion {
 			}
 			//Creamos el constructor
 			public Posicion(int fila, char columna){
-				//Comprobamos que tenga los valores pertinentes
-				if (columna < 'a' || columna > 'h') throw new IllegalArgumentException("Los valores de la columna son incoherentes");
+				setFila(fila);
+				setColumna(columna);
+				
+				/*if (columna < 'a' || columna > 'h') throw new IllegalArgumentException("Los valores de la columna son incoherentes");
 				else {
 					this.columna = columna;
 				}
 				if (fila < 0 && fila > 8)throw new IllegalArgumentException("Los valores de la fila son incoherentes");	
 				else {
 					this.fila = fila;
-				}
+				}*/
 			}
 			//Creamos el constructor copia
 			public Posicion(final Posicion copia) {

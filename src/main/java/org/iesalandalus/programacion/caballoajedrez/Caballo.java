@@ -5,9 +5,10 @@ import org.iesalandalus.programacion.caballoajedrez.Color;
 public class Caballo {
 	char columna;
 	int fila;
+	Posicion posicion;
 	Color color;
 	//Recibimos la posición del caballo
-	String posicion = (new Posicion(fila, columna)).toString();
+	posicion = (new Posicion(fila, columna)).toString();
 	
 	//Creamos el setter para color
 	public void setColor(String color) {
