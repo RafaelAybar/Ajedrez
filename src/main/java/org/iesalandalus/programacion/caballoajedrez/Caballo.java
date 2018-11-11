@@ -1,4 +1,5 @@
 package org.iesalandalus.programacion.caballoajedrez;
+import org.iesalandalus.programacion.caballoajedrez.Posicion;
 import org.iesalandalus.programacion.caballoajedrez.Color;
 
 public class Caballo {
