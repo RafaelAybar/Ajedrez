@@ -54,6 +54,6 @@ public class Posicion {
 				//this.fila = getFila();
 				//this.columna = getColumna();
 				//return "[fila][columna]";
-				return "[+getFila()+] [+getColumna()]";
+				return "getFila()"+ "getColumna()";
 			}
 					}
