@@ -22,5 +22,4 @@ public class Caballo {
 	public void setPosicion(String posicion) {
 		this.posicion = posicion;
 	}
-	
 	}
