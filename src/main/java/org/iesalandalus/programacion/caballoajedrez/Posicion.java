@@ -1,8 +1,8 @@
 package org.iesalandalus.programacion.caballoajedrez;
 
 public class Posicion {
-			public int fila;
-			public char columna;
+			private int fila;
+			private char columna;
 			
 			// Creamos los getter
 			public char getColumna() {
@@ -49,8 +49,9 @@ public class Posicion {
 			//Creamos el método toString
 			@Override
 			public String toString(){
-				this.fila = getFila();
-				this.columna = getColumna();
-				return "[fila][columna]";
+				//this.fila = getFila();
+				//this.columna = getColumna();
+				//return "[fila][columna]";
+				return "[+getFila()+] [+getColumna()]";
 			}
-		}
+					}
