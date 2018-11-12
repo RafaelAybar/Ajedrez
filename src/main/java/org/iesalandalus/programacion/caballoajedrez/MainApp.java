@@ -1,15 +1,20 @@
 package org.iesalandalus.programacion.caballoajedrez;
 
+import org.iesalandalus.programacion.utilidades.Entrada;
+
 public class MainApp {
 
 	public static void main(String[] args) {
 		System.out.println("Programa para aprender a colocar y mover un caballo en el tablero de ajedrez");
+		// Menú
+		System.out.println("Introduze la fila");
+		int fila = Entrada.entero();
+		char columna = Entrada.caracter();
 	}
 	/*
 	 *
-	 * System.out.println("Introduze la fila"); //int filaNueva = new
-	 * Scanner(System.in).nextInt(); int filaNueva = Entrada.entero(); //Para
-	 * validar el dato tenemos que forzzarlo como string
+	 * int filaNueva = new Scanner(System.in).nextInt(); int filaNueva =
+	 * Entrada.entero(); //Para validar el dato tenemos que forzzarlo como string
 	 * System.out.println("Introduce la columna"); char columnaNueva =
 	 * Entrada.caracter(); //Como es una sola letra, usamos charAt(0) para obtenerla
 	 * //char letraColumna = columnaNueva.charAt(0);
