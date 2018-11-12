@@ -1,9 +1,7 @@
 package org.iesalandalus.programacion.caballoajedrez;
 
 public class Caballo {
-	private char columna;
-	private int fila;
-	String posicion = (new Posicion(fila, columna)).toString();
+	Posicion posicion;
 	Color color;
 
 	// Creamos el setter para color
@@ -18,5 +16,15 @@ public class Caballo {
 	// Creamos el getter para el color
 	public Color getColor(Color color) {
 		return color;
+	}
+
+	// Creamos el getter de la posición
+	public String getPosicion(String posicion) {
+		return posicion;
+	}
+
+	// Creamos el setter de la posicion
+	public void setPosicion(Posicion posicion) {
+		this.posicion = posicion;
 	}
 }
