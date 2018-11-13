@@ -3,10 +3,6 @@ package org.iesalandalus.programacion.caballoajedrez;
 public class Caballo {
 	Posicion posicion;
 	Color color;
-	int fila;
-	char columna;
-	String posicionDefecto;
-	/**/
 
 	// Creamos el setter para color
 	public void setColor(String color) {
@@ -33,7 +29,7 @@ public class Caballo {
 	}
 
 	// Creamos el constuctor con el valor por defecto '8b'
-	public Caballo(String posicionDefecto) {
-		this.posicionDefecto = "8a";
+	public Caballo(Posicion posicion) {
+		this.posicion = new Posicion(8, 'a');
 	}
 }
