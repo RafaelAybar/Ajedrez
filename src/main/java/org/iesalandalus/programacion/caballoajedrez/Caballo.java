@@ -5,6 +5,9 @@ import javax.naming.OperationNotSupportedException;
 public class Caballo {
 	Posicion posicion;
 	Color color;
+	Direccion direccion;
+	Posicion fila;
+	Posicion columna;
 
 	// Creamos el setter para color
 	public void setColor(String color) {
@@ -48,10 +51,10 @@ public class Caballo {
 	}
 
 	// Creamos el constructor con el color y la fila inicial como parámetros
-	public Caballo(Color color, int columna) throws OperationNotSupportedException {
+	public Caballo(Color color, char columna) throws OperationNotSupportedException {
 		// Comprobamos que la fila sea la correcta
 		if (columna != 'b' || columna != 'g') {
-			throw new OperationNotSupportedException("La fila introducida no es correcta");
+			throw new IllegalArgumentException("La fila introducida no es correcta");
 		}
 		// Asignamos el color en función de la fila introducida
 		if (columna == 'b') {
@@ -60,6 +63,33 @@ public class Caballo {
 		} else {
 			this.color = Color.NEGRO;
 			this.posicion = new Posicion(1, 'g');
+		}
+	}
+
+	// Creamos el método mover
+	public void mover(Direccion direccion) throws OperationNotSupportedException {
+		// Creamos variables locales para almacenar la posicion
+
+		switch (direccion) {
+		case ARRIBA_DERECHA:
+			break;
+		case ARRIBA_IZQUIERDA:
+			break;
+		case DERECHA_ARRIBA:
+			break;
+		case DERECHA_ABAJO:
+			break;
+		case ABAJO_DERECHA:
+			break;
+		case ABAJO_IZQUIERDA:
+			break;
+		case IZQUIERDA_ARRIBA:
+			break;
+		case IZQUIERDA_ABAJO:
+			break;
+		default:
+			throw new OperationNotSupportedException("El movimiento introducido no es válido");
+
 		}
 	}
 }
