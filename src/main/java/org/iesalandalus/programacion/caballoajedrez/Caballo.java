@@ -30,8 +30,17 @@ public class Caballo {
 		this.posicion = posicion;
 	}
 
+	// Creamos los setter y getter para color
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
 	// Creamos el constuctor con el valor por defecto '8b'
-	public Caballo(Posicion posicion) {
+	public Caballo() {
 		this.posicion = new Posicion(8, 'b');
 	}
 
@@ -55,10 +64,10 @@ public class Caballo {
 		}
 		// Asignamos el color en función de la fila introducida
 		if (columna == 'b') {
-			this.color = Color.BLANCO;
+			this.setColor(Color.BLANCO);
 			this.posicion = new Posicion(1, 'b');
 		} else {
-			this.color = Color.NEGRO;
+			this.setColor(Color.NEGRO);
 			this.posicion = new Posicion(1, 'g');
 		}
 	}
@@ -109,5 +118,40 @@ public class Caballo {
 			throw new OperationNotSupportedException("El movimiento introducido no es válido");
 
 		}
+
+	}
+
+	// Creamos el método equals
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		Caballo other = (Caballo) obj;
+		if (color != other.color) {
+			return false;
+		}
+		if (posicion == null) {
+			if (other.posicion != null) {
+				return false;
+			}
+		} else if (!posicion.equals(other.posicion)) {
+			return false;
+		}
+		return true;
+
+	}
+
+	// Creamos el método toString
+	@Override
+	public String toString() {
+		return "Caballo [" + (posicion != null ? "posicion=" + posicion + ", " : "")
+				+ (color != null ? "color=" + color : "") + "]";
 	}
 }

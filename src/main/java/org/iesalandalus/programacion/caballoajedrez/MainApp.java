@@ -1,16 +1,26 @@
 package org.iesalandalus.programacion.caballoajedrez;
 
-import org.iesalandalus.programacion.utilidades.Entrada;
-
 public class MainApp {
 
 	public static void main(String[] args) {
-		System.out.println("Programa para aprender a colocar y mover un caballo en el tablero de ajedrez");
-		// Menú
-		System.out.println("Introduze la fila");
-		int fila = Entrada.entero();
-		char columna = Entrada.caracter();
+		/*
+		 * System.out.
+		 * println("Programa para aprender a colocar y mover un caballo en el tablero de ajedrez"
+		 * ); // Menú System.out.println("Bienvenido selecciona qué deseas hacer");
+		 * System.out.println("Introduce 1 para crear un caballo por defecto");
+		 * System.out.
+		 * println("Introduce 2 para crear un caballo de un color con una columna inicial válida"
+		 * ); System.out.println("Introduce 3 para mover el caballo");
+		 * System.out.println("Introduce 4 para salir");
+		 * 
+		 * int respuesta = Entrada.entero(); do { switch (respuesta) { case 1: Caballo
+		 * posicion = new Caballo();
+		 * System.out.println("Se ha creado el caballo por defecto en la posición (8,)"
+		 * ); } } while (respuesta != 4); // int fila = Entrada.entero(); // char
+		 * columna = Entrada.caracter();
+		 */
 	}
+
 	/*
 	 *
 	 * int filaNueva = new Scanner(System.in).nextInt(); int filaNueva =
