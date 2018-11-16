@@ -3,11 +3,8 @@ package org.iesalandalus.programacion.caballoajedrez;
 import javax.naming.OperationNotSupportedException;
 
 public class Caballo {
-	Posicion posicion;
-	Color color;
-	Direccion direccion;
-	Posicion fila;
-	Posicion columna;
+	private Posicion posicion;
+	private Color color;
 
 	// Creamos el setter para color
 	public void setColor(String color) {
@@ -70,22 +67,43 @@ public class Caballo {
 	public void mover(Direccion direccion) throws OperationNotSupportedException {
 		// Creamos variables locales para almacenar la posicion
 
+		int fila = posicion.getFila();
+		char columna = posicion.getColumna();
+
 		switch (direccion) {
 		case ARRIBA_DERECHA:
+			posicion.setFila(fila + 2);
+			posicion.setColumna(columna++);
 			break;
 		case ARRIBA_IZQUIERDA:
+			posicion.setFila(fila + 2);
+			posicion.setColumna(columna--);
 			break;
 		case DERECHA_ARRIBA:
+			// Bibliografía:
+			// https://stackoverflow.com/questions/8688668/in-java-is-the-result-of-the-addition-of-two-chars-an-int-or-a-char
+			posicion.setColumna(columna += 2);
+			posicion.setFila(fila++);
 			break;
 		case DERECHA_ABAJO:
+			posicion.setColumna(columna += 2);
+			posicion.setFila(fila--);
 			break;
 		case ABAJO_DERECHA:
+			posicion.setFila(fila - 2);
+			posicion.setColumna(columna++);
 			break;
 		case ABAJO_IZQUIERDA:
+			posicion.setColumna(columna--);
+			posicion.setFila(fila + 2);
 			break;
 		case IZQUIERDA_ARRIBA:
+			posicion.setColumna(columna -= 2);
+			posicion.setFila(fila++);
 			break;
 		case IZQUIERDA_ABAJO:
+			posicion.setColumna(columna -= 2);
+			posicion.setFila(fila--);
 			break;
 		default:
 			throw new OperationNotSupportedException("El movimiento introducido no es válido");
