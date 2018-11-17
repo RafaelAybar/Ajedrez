@@ -3,6 +3,7 @@ package org.iesalandalus.programacion.caballoajedrez;
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 public class MainApp {
+
 	public void mostrarMenu() {
 		System.out.println("Introduce 1 para crear un caballo por defecto");
 		System.out.println("Introduce 2 para crear un caballo de un color con una columna inicial válida");
@@ -10,13 +11,24 @@ public class MainApp {
 		System.out.println("Introduce 4 para salir");
 	}
 
-	public int elegirOpcion() {
-		// Validamos la respuesta
-		int respuesta = Entrada.entero();
-		if (respuesta > 4 || respuesta < 1) {
-			throw new IllegalArgumentException("la opción introducida no es correcta");
+	/*
+	 * public int elegirOpcion() { // Validamos la respuesta if (respuesta > 4 ||
+	 * respuesta < 1) { throw new
+	 * IllegalArgumentException("la opción introducida no es correcta"); } else {
+	 * return respuesta; } }
+	 */
+
+	public void elegirColor(Color color) {
+		if (color.equals(Color.BLANCO)) {
+			color = Color.BLANCO;
+		} else {
+			color = Color.NEGRO;
 		}
-		return respuesta;
+
+	}
+
+	public void crearCaballoDefecto() {
+		Caballo caballodefecto = new Caballo();
 	}
 
 	public void ejecutarOpcion(int respuesta) {
@@ -35,14 +47,14 @@ public class MainApp {
 	}
 
 	public static void main(String[] args) {
+		int respuesta = Entrada.entero();
 		/*
 		 * System.out.
 		 * println("Programa para aprender a colocar y mover un caballo en el tablero de ajedrez"
 		 * ); // Menú System.out.println("Bienvenido selecciona qué deseas hacer");
 		 *
 		 *
-		 * int respuesta = Entrada.entero(); do { switch (respuesta) { case 1: Caballo
-		 * posicion = new Caballo();
+		 * i do { switch (respuesta) { case 1: Caballo posicion = new Caballo();
 		 * System.out.println("Se ha creado el caballo por defecto en la posición (8,)"
 		 * ); } } while (respuesta != 4); // int fila = Entrada.entero(); // char
 		 * columna = Entrada.caracter();
