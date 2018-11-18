@@ -1,8 +1,10 @@
 package org.iesalandalus.programacion.caballoajedrez;
 
-import org.iesalandalus.programacion.utilidades.Entrada;
-
 public class MainApp {
+	Color color;
+	int numeroPrincipal;
+
+	int numeroMover;
 
 	public void mostrarMenu() {
 		System.out.println("Introduce 1 para crear un caballo por defecto");
@@ -11,12 +13,13 @@ public class MainApp {
 		System.out.println("Introduce 4 para salir");
 	}
 
-	/*
-	 * public int elegirOpcion() { // Validamos la respuesta if (respuesta > 4 ||
-	 * respuesta < 1) { throw new
-	 * IllegalArgumentException("la opción introducida no es correcta"); } else {
-	 * return respuesta; } }
-	 */
+	public int elegirOpcion() {
+		if (numeroPrincipal > 4 || numeroPrincipal < 1) {
+			throw new IllegalArgumentException("la opción introducida no es correcta");
+		} else {
+			return numeroPrincipal;
+		}
+	}
 
 	public void elegirColor(Color color) {
 		if (color.equals(Color.BLANCO)) {
@@ -28,11 +31,60 @@ public class MainApp {
 	}
 
 	public void crearCaballoDefecto() {
-		Caballo caballodefecto = new Caballo();
+		Caballo caballo = new Caballo();
+		System.out.println("Se ha creado el caballo negro con la posición por defecto, (8,b)");
 	}
 
-	public void ejecutarOpcion(int respuesta) {
-		switch (respuesta) {
+	public void crearCaballoDefectoColor() {
+		Caballo caballo = new Caballo(color);
+	}
+
+	public void mover() {
+
+	}
+
+	public void mostrarMenuDirecciones() {
+		System.out.println("La lista de posiciones disponibles es la siguiente");
+		System.out.println(
+				"1 ARRIBA_IZQUIERDA 2 ARRIBA_DERECHA 3 DERECHA_ARRIBA 4 DERECHA_ABAJO 5 ABAJO_DERECHA 6 ABAJO_IZQUIERDA 7 IZQUIERDA_ARRIBA 8 IZQUIERDA_ABAJO");
+
+	}
+
+	public Direccion elegirDireccion(Direccion direccion) {
+		switch (numeroMover) {
+		case 1:
+			direccion = Direccion.ARRIBA_DERECHA;
+			break;
+		case 2:
+			direccion = Direccion.ARRIBA_DERECHA;
+			break;
+		case 3:
+			direccion = Direccion.DERECHA_ARRIBA;
+			break;
+		case 4:
+			direccion = Direccion.DERECHA_ABAJO;
+			break;
+		case 5:
+			direccion = Direccion.ABAJO_DERECHA;
+			break;
+		case 6:
+			direccion = Direccion.ABAJO_IZQUIERDA;
+			break;
+		case 7:
+			direccion = Direccion.IZQUIERDA_ARRIBA;
+			break;
+		case 8:
+			direccion = Direccion.IZQUIERDA_ABAJO;
+			break;
+		default:
+			throw new IllegalArgumentException("La fila introducida no es correcta");
+		}
+		return direccion;
+
+	}
+
+	public void ejecutarOpcion(int numeroPrincipal) {
+		switch (numeroPrincipal) {
 		case 1:
 			break;
 		case 2:
@@ -47,16 +99,16 @@ public class MainApp {
 	}
 
 	public static void main(String[] args) {
-		int respuesta = Entrada.entero();
+//		numeroPrincipal = Entrada.entero();
 		/*
 		 * System.out.
 		 * println("Programa para aprender a colocar y mover un caballo en el tablero de ajedrez"
 		 * ); // Menú System.out.println("Bienvenido selecciona qué deseas hacer");
 		 *
 		 *
-		 * i do { switch (respuesta) { case 1: Caballo posicion = new Caballo();
+		 * i do { switch (numeroPrincipal) { case 1: Caballo posicion = new Caballo();
 		 * System.out.println("Se ha creado el caballo por defecto en la posición (8,)"
-		 * ); } } while (respuesta != 4); // int fila = Entrada.entero(); // char
+		 * ); } } while (numeroPrincipal != 4); // int fila = Entrada.entero(); // char
 		 * columna = Entrada.caracter();
 		 */
 	}
