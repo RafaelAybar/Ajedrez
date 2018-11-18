@@ -1,10 +1,9 @@
 package org.iesalandalus.programacion.caballoajedrez;
 
 public class MainApp {
-	Color color;
-	int numeroPrincipal;
-
-	int numeroMover;
+	private Color color;
+	private int numeroPrincipal;
+	private int numeroMover;
 
 	public void mostrarMenu() {
 		System.out.println("Introduce 1 para crear un caballo por defecto");
@@ -23,9 +22,9 @@ public class MainApp {
 
 	public void elegirColor(Color color) {
 		if (color.equals(Color.BLANCO)) {
-			color = Color.BLANCO;
+			this.color = Color.BLANCO;
 		} else {
-			color = Color.NEGRO;
+			this.color = Color.NEGRO;
 		}
 
 	}
@@ -80,6 +79,10 @@ public class MainApp {
 			throw new IllegalArgumentException("La fila introducida no es correcta");
 		}
 		return direccion;
+
+	}
+
+	public void crearCaballoColorPosicion(Color color, Direccion direccion) {
 
 	}
 
