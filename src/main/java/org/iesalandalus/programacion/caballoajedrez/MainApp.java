@@ -76,10 +76,9 @@ public class MainApp {
 			direccion = Direccion.IZQUIERDA_ABAJO;
 			break;
 		default:
-			throw new IllegalArgumentException("La fila introducida no es correcta");
+			throw new IllegalArgumentException("El valor introducido no es correcto");
 		}
 		return direccion;
-
 	}
 
 	public void crearCaballoColorPosicion(Color color, Direccion direccion) {
@@ -89,15 +88,17 @@ public class MainApp {
 	public void ejecutarOpcion(int numeroPrincipal) {
 		switch (numeroPrincipal) {
 		case 1:
+			crearCaballoDefecto();
 			break;
 		case 2:
+			crearCaballoDefectoColor();
 			break;
 		case 3:
 			break;
 		case 4:
 			break;
 		default:
-			System.out.println("Opción no válida");
+			throw new IllegalArgumentException("El valor introducido no es correcto");
 		}
 	}
 

@@ -59,7 +59,7 @@ public class Caballo {
 	// Creamos el constructor con el color y la fila inicial como parámetros
 	public Caballo(Color color, char columna) throws OperationNotSupportedException {
 		// Comprobamos que la fila sea la correcta
-		if (columna != 'b' || columna != 'g') {
+		if (columna != 'b' && columna != 'g') {
 			throw new IllegalArgumentException("La fila introducida no es correcta");
 		}
 		// Asignamos el color en función de la fila introducida

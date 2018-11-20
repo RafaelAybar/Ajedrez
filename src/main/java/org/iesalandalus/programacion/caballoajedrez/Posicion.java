@@ -24,7 +24,7 @@ public class Posicion {
 	}
 
 	public void setFila(int fila) {
-		if (fila < 0 && fila > 8) {
+		if (fila < 0 || fila > 8) {
 			throw new IllegalArgumentException("Los valores de la fila son incoherentes");
 		} else {
 			this.fila = fila;
