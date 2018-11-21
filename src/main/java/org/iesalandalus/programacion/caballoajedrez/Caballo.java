@@ -3,7 +3,7 @@ package org.iesalandalus.programacion.caballoajedrez;
 import javax.naming.OperationNotSupportedException;
 
 public class Caballo {
-	private Posicion posicion;
+	private static Posicion posicion;
 	private Color color;
 
 	// Creamos el setter para color
@@ -27,7 +27,7 @@ public class Caballo {
 
 	// Creamos el setter de la posicion
 	public void setPosicion(Posicion posicion) {
-		this.posicion = posicion;
+		Caballo.posicion = posicion;
 	}
 
 	// Creamos los setter y getter para color
@@ -41,7 +41,7 @@ public class Caballo {
 
 	// Creamos el constuctor con el valor por defecto '8b'
 	public Caballo() {
-		this.posicion = new Posicion(8, 'b');
+		Caballo.posicion = new Posicion(8, 'b');
 	}
 
 	/*
@@ -50,10 +50,10 @@ public class Caballo {
 	 */
 	public Caballo(Color color) {
 		if (color.equals(Color.BLANCO)) {
-			this.posicion = new Posicion(1, 'b');
+			Caballo.posicion = new Posicion(1, 'b');
 			this.color = Color.BLANCO;
 		} else {
-			this.posicion = new Posicion(8, 'b');
+			Caballo.posicion = new Posicion(8, 'b');
 			this.color = Color.NEGRO;
 		}
 	}
@@ -66,14 +66,14 @@ public class Caballo {
 		}
 		// Asignamos la fila en función del color
 		if (color.equals(Color.BLANCO)) {
-			this.posicion = new Posicion(1, 'b');
+			Caballo.posicion = new Posicion(1, 'b');
 		} else {
-			this.posicion = new Posicion(8, 'b');
+			Caballo.posicion = new Posicion(8, 'b');
 		}
 	}
 
 	// Creamos el método mover
-	public void mover(Direccion direccion) throws OperationNotSupportedException {
+	public static void mover(Direccion direccion) throws OperationNotSupportedException {
 		// Creamos variables locales para almacenar la posicion
 
 		int fila = posicion.getFila();
@@ -138,10 +138,10 @@ public class Caballo {
 			return false;
 		}
 		if (posicion == null) {
-			if (other.posicion != null) {
+			if (Caballo.posicion != null) {
 				return false;
 			}
-		} else if (!posicion.equals(other.posicion)) {
+		} else if (!posicion.equals(Caballo.posicion)) {
 			return false;
 		}
 		return true;

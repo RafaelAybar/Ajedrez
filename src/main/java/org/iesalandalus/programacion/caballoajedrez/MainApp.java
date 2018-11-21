@@ -1,11 +1,15 @@
 package org.iesalandalus.programacion.caballoajedrez;
 
-public class MainApp {
-	private Color color;
-	private int numeroPrincipal;
-	private int numeroMover;
+import javax.naming.OperationNotSupportedException;
 
-	public void mostrarMenu() {
+import org.iesalandalus.programacion.utilidades.Entrada;
+
+public class MainApp {
+	private static Color color;
+	private int numeroPrincipal;
+	private static int numeroMover;
+
+	public static void mostrarMenu() {
 		System.out.println("Introduce 1 para crear un caballo por defecto");
 		System.out.println("Introduce 2 para crear un caballo de un color con una columna inicial válida");
 		System.out.println("Introduce 3 para mover el caballo");
@@ -22,14 +26,14 @@ public class MainApp {
 
 	public void elegirColor(Color color) {
 		if (color.equals(Color.BLANCO)) {
-			this.color = Color.BLANCO;
+			MainApp.color = Color.BLANCO;
 		} else {
-			this.color = Color.NEGRO;
+			MainApp.color = Color.NEGRO;
 		}
 
 	}
 
-	public void crearCaballoDefecto() {
+	public static void crearCaballoDefecto() {
 		Caballo caballo = new Caballo();
 		System.out.println("Se ha creado el caballo negro con la posición por defecto, (8,b)");
 	}
@@ -38,14 +42,15 @@ public class MainApp {
 		Caballo caballo = new Caballo(color);
 	}
 
-	public void mostrarMenuDirecciones() {
+	public static void mostrarMenuDirecciones() {
 		System.out.println("La lista de posiciones disponibles es la siguiente");
 		System.out.println(
 				"1 ARRIBA_IZQUIERDA 2 ARRIBA_DERECHA 3 DERECHA_ARRIBA 4 DERECHA_ABAJO 5 ABAJO_DERECHA 6 ABAJO_IZQUIERDA 7 IZQUIERDA_ARRIBA 8 IZQUIERDA_ABAJO");
 
 	}
 
-	public Direccion elegirDireccion(Direccion direccion) {
+	public static Direccion elegirDireccion(int numeroMover) {
+		Direccion direccion;
 		switch (numeroMover) {
 		case 1:
 			direccion = Direccion.ARRIBA_DERECHA;
@@ -77,59 +82,55 @@ public class MainApp {
 		return direccion;
 	}
 
-	public void crearCaballoColorPosicion() {
+	public static void crearCaballoColorPosicion(Color color) {
 		Caballo caballo = new Caballo(color);
 	}
 
-	public void ejecutarOpcion(int numeroPrincipal) {
+	public static void ejecutarOpcion(int numeroPrincipal) throws OperationNotSupportedException {
 		switch (numeroPrincipal) {
 		case 1:
 			crearCaballoDefecto();
+
 			break;
 		case 2:
-			crearCaballoDefectoColor();
+			System.out.println("Introduce el color que quires: 1 Blanco 2 Negro");
+			int opcion = Entrada.entero();
+			if (opcion == 1) {
+				color = Color.BLANCO;
+				crearCaballoColorPosicion(color);
+			} else if (opcion == 2) {
+				color = Color.NEGRO;
+				crearCaballoColorPosicion(color);
+			} else {
+				throw new IllegalArgumentException("El valor introducido no es correcto");
+			}
+
 			break;
 		case 3:
+
+			mostrarMenuDirecciones();
+			Direccion direccion = elegirDireccion(numeroMover);
+			int numeroMover = Entrada.entero();
+			Caballo.mover(direccion);
+			System.out.println("El caballo se ha desplazado en la dirección introducida");
 			break;
 		case 4:
+			System.out.println("Hasta luego");
 			break;
 		default:
 			throw new IllegalArgumentException("El valor introducido no es correcto");
 		}
 	}
 
-	public static void main(String[] args) {
-//		numeroPrincipal = Entrada.entero();
-		/*
-		 * System.out.
-		 * println("Programa para aprender a colocar y mover un caballo en el tablero de ajedrez"
-		 * ); // Menú System.out.println("Bienvenido selecciona qué deseas hacer");
-		 *
-		 *
-		 * i do { switch (numeroPrincipal) { case 1: Caballo posicion = new Caballo();
-		 * System.out.println("Se ha creado el caballo por defecto en la posición (8,)"
-		 * ); } } while (numeroPrincipal != 4); // int fila = Entrada.entero(); // char
-		 * columna = Entrada.caracter();
-		 */
-	}
+	public static void main(String[] args) throws OperationNotSupportedException {
+		System.out.println("Programa para aprender a colocar y mover un caballo en el tablero de ajedrez");
 
-	/*
-	 *
-	 * int filaNueva = new Scanner(System.in).nextInt(); int filaNueva =
-	 * Entrada.entero(); //Para validar el dato tenemos que forzzarlo como string
-	 * System.out.println("Introduce la columna"); char columnaNueva =
-	 * Entrada.caracter(); //Como es una sola letra, usamos charAt(0) para obtenerla
-	 * //char letraColumna = columnaNueva.charAt(0);
-	 *
-	 * //validamos los valores introducidos
-	 *
-	 * if (filaNueva < 9 && filaNueva > 0) { System.out.println("Fila correcta"); }
-	 * else { throw new
-	 * IllegalArgumentException("Los valores de la fila son incoherentes"); } if
-	 * (columnaNueva == 'a' || columnaNueva == 'b' || columnaNueva == 'c' ||
-	 * columnaNueva == 'd' || columnaNueva == 'e' || columnaNueva == 'f' ||
-	 * columnaNueva == 'g' || columnaNueva == 'h'){
-	 * System.out.println("Columna correcta"); } else { throw new
-	 * IllegalArgumentException("Los valores de la columna son incoherentes"); } }
-	 */
+		mostrarMenu();
+		int numeroPrincipal = Entrada.entero();
+		do {
+			ejecutarOpcion(numeroPrincipal);
+			System.out.println("Selecciona qué quieres hacer ahrora");
+			numeroPrincipal = Entrada.entero();
+		} while (numeroPrincipal != 4);
+	}
 }
