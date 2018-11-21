@@ -38,10 +38,6 @@ public class MainApp {
 		Caballo caballo = new Caballo(color);
 	}
 
-	public void mover() {
-
-	}
-
 	public void mostrarMenuDirecciones() {
 		System.out.println("La lista de posiciones disponibles es la siguiente");
 		System.out.println(

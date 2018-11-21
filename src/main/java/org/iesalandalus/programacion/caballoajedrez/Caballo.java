@@ -64,13 +64,11 @@ public class Caballo {
 		if (columna != 'b' && columna != 'g') {
 			throw new IllegalArgumentException("La fila introducida no es correcta");
 		}
-		// Asignamos el color en función de la fila introducida
-		if (columna == 'b') {
-			this.setColor(Color.BLANCO);
+		// Asignamos la fila en función del color
+		if (color.equals(Color.BLANCO)) {
 			this.posicion = new Posicion(1, 'b');
 		} else {
-			this.setColor(Color.NEGRO);
-			this.posicion = new Posicion(1, 'g');
+			this.posicion = new Posicion(8, 'b');
 		}
 	}
 
