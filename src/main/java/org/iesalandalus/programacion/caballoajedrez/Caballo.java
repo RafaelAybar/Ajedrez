@@ -51,8 +51,10 @@ public class Caballo {
 	public Caballo(Color color) {
 		if (color.equals(Color.BLANCO)) {
 			this.posicion = new Posicion(1, 'b');
+			this.color = Color.BLANCO;
 		} else {
 			this.posicion = new Posicion(8, 'b');
+			this.color = Color.NEGRO;
 		}
 	}
 

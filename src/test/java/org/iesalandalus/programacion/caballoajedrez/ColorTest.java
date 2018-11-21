@@ -1,15 +1,14 @@
 package org.iesalandalus.programacion.caballoajedrez;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import org.iesalandalus.programacion.caballoajedrez.MainApp.Color;
 import org.junit.Test;
 
 public class ColorTest {
 
-@Test
+	@Test
 	public void coloresValidosTest() {
-		//Pasará el test si se han nombrado correctamente los colores
+		// Pasará el test si se han nombrado correctamente los colores
 		Color color;
 		color = Color.BLANCO;
 		assertEquals(Color.BLANCO, color);

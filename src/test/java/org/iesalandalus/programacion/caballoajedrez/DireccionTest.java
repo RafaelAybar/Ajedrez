@@ -1,15 +1,14 @@
 package org.iesalandalus.programacion.caballoajedrez;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import org.iesalandalus.programacion.caballoajedrez.MainApp.Direccion;
 import org.junit.Test;
 
 public class DireccionTest {
 
 	@Test
 	public void direccionesValidasTest() {
-		//Pasará el test si hemos nombrado bien las direcciones
+		// Pasará el test si hemos nombrado bien las direcciones
 		Direccion direccion;
 		direccion = Direccion.ARRIBA_DERECHA;
 		assertEquals(Direccion.ARRIBA_DERECHA, direccion);
