@@ -52,10 +52,13 @@ public class Caballo {
 		if (color.equals(Color.BLANCO)) {
 			Caballo.posicion = new Posicion(1, 'b');
 			this.color = Color.BLANCO;
-		} else {
+		} else if (color.equals(Color.NEGRO)) {
 			Caballo.posicion = new Posicion(8, 'b');
 			this.color = Color.NEGRO;
+		} else {
+			throw new IllegalArgumentException("El color introducido no es el correcto");
 		}
+
 	}
 
 	// Creamos el constructor con el color y la fila inicial como parámetros

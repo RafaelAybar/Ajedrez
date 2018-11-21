@@ -84,23 +84,26 @@ public class MainApp {
 
 	public static void crearCaballoColorPosicion(Color color) {
 		Caballo caballo = new Caballo(color);
+		System.out.println("Se ha creado un caballo del color introducido");
 	}
 
 	public static void ejecutarOpcion(int numeroPrincipal) throws OperationNotSupportedException {
 		switch (numeroPrincipal) {
 		case 1:
 			crearCaballoDefecto();
-
+			System.out.println("Se ha creado un caballo en la posición por defecto (8,b)");
 			break;
 		case 2:
-			System.out.println("Introduce el color que quires: 1 Blanco 2 Negro");
+			System.out.println("Introduce el color que quieres: 1 Blanco 2 Negro");
 			int opcion = Entrada.entero();
 			if (opcion == 1) {
 				color = Color.BLANCO;
 				crearCaballoColorPosicion(color);
+				System.out.println("Se ha creado un caballo de color blanco en la posición (1,b)");
 			} else if (opcion == 2) {
 				color = Color.NEGRO;
 				crearCaballoColorPosicion(color);
+				System.out.println("Se ha creado un caballo de color negroen la posición (8,b)");
 			} else {
 				throw new IllegalArgumentException("El valor introducido no es correcto");
 			}
@@ -109,8 +112,9 @@ public class MainApp {
 		case 3:
 
 			mostrarMenuDirecciones();
-			Direccion direccion = elegirDireccion(numeroMover);
 			int numeroMover = Entrada.entero();
+			Direccion direccion = elegirDireccion(numeroMover);
+
 			Caballo.mover(direccion);
 			System.out.println("El caballo se ha desplazado en la dirección introducida");
 			break;
@@ -129,7 +133,7 @@ public class MainApp {
 		int numeroPrincipal = Entrada.entero();
 		do {
 			ejecutarOpcion(numeroPrincipal);
-			System.out.println("Selecciona qué quieres hacer ahrora");
+			System.out.println("Selecciona qué quieres hacer ahora");
 			numeroPrincipal = Entrada.entero();
 		} while (numeroPrincipal != 4);
 	}
