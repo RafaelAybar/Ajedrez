@@ -8,6 +8,7 @@ public class MainApp {
 	private static Color color;
 	private int numeroPrincipal;
 	private static int numeroMover;
+	private static Caballo caballo;
 
 	public static void mostrarMenu() {
 		System.out.println("Introduce 1 para crear un caballo por defecto");
@@ -33,9 +34,9 @@ public class MainApp {
 
 	}
 
-	public static void crearCaballoDefecto() {
+	public static Caballo crearCaballoDefecto() {
 		Caballo caballo = new Caballo();
-		System.out.println("Se ha creado el caballo negro con la posición por defecto, (8,b)");
+		return caballo;
 	}
 
 	public void crearCaballoDefectoColor() {
@@ -82,15 +83,16 @@ public class MainApp {
 		return direccion;
 	}
 
-	public static void crearCaballoColorPosicion(Color color) {
+	public static Caballo crearCaballoColorPosicion(Color color) {
 		Caballo caballo = new Caballo(color);
 		System.out.println("Se ha creado un caballo del color introducido");
+		return caballo;
 	}
 
 	public static void ejecutarOpcion(int numeroPrincipal) throws OperationNotSupportedException {
 		switch (numeroPrincipal) {
 		case 1:
-			crearCaballoDefecto();
+			caballo = crearCaballoDefecto();
 			System.out.println("Se ha creado un caballo en la posición por defecto (8,b)");
 			break;
 		case 2:
@@ -98,11 +100,11 @@ public class MainApp {
 			int opcion = Entrada.entero();
 			if (opcion == 1) {
 				color = Color.BLANCO;
-				crearCaballoColorPosicion(color);
+				caballo = crearCaballoColorPosicion(color);
 				System.out.println("Se ha creado un caballo de color blanco en la posición (1,b)");
 			} else if (opcion == 2) {
 				color = Color.NEGRO;
-				crearCaballoColorPosicion(color);
+				caballo = crearCaballoColorPosicion(color);
 				System.out.println("Se ha creado un caballo de color negroen la posición (8,b)");
 			} else {
 				throw new IllegalArgumentException("El valor introducido no es correcto");
@@ -110,13 +112,17 @@ public class MainApp {
 
 			break;
 		case 3:
+			if (caballo == null) {
+				System.out.println("No se puede mover el caballo si no lo has creado previamente");
+			} else {
+				mostrarMenuDirecciones();
+				int numeroMover = Entrada.entero();
+				Direccion direccion = elegirDireccion(numeroMover);
 
-			mostrarMenuDirecciones();
-			int numeroMover = Entrada.entero();
-			Direccion direccion = elegirDireccion(numeroMover);
+				Caballo.mover(direccion);
+				System.out.println("El caballo se ha desplazado en la dirección introducida");
 
-			Caballo.mover(direccion);
-			System.out.println("El caballo se ha desplazado en la dirección introducida");
+			}
 			break;
 		case 4:
 			System.out.println("Hasta luego");
